@@ -61,74 +61,17 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 
 ### **Secțiuni și Conținut**
 
-#### **1. Header Section** (`<header class="header">`)
+- **Header:** `assets/header-image.jpg` (doi băieți cu rucsac)
+- **Conținut:** `assets/content-image.jpg` (educația rurală)
+- **Testimonial:** `assets/testimonial-image.jpg` (copil trist)
+- **QR Code:** `assets/qr-code.png` (pentru scanare)
+- **Logo:** `assets/logo_sn.png` (Something New)
 
-- **Imagine:** `assets/header-image.jpg` - Doi copii cu rucsac
-- **Titlu:** "LUMINA DE LA ÎNCEPUTUL CLASEI"
-- **Subtitlu:** "O campanie pentru educația copiilor din mediul rural"
-- **Culoare:** Galben gradient cu text negru
-
-#### **2. Main Content Section** (`<section class="main-content">`)
-
-- **Imagine:** `assets/content-image.jpg` - Educația rurală/copiii la școală
-- **Text Principal:** Mesajul despre ghiozdanul gol și impactul donației
-- **Culoare:** Fundal alb cu text albastru
-
-#### **3. How it Works Section** (`<section class="how-it-works">`)
-
-- **Titlu:** "CUM FUNCȚIONEAZĂ?"
-- **SMS Box:** Afișează numărul 8846 și textul "LOC"
-- **Culoare:** Fundal gri cu accent galben
-
-#### **4. Testimonial Section** (`<section class="testimonial">`)
-
-- **Imagine:** `assets/testimonial-image.jpg` - Copil trist care are nevoie de ajutor
-- **Text:** Testimonialul Mariei (8 ani) din Valea Albă
-- **Culoare:** Fundal alb cu text gri
-
-#### **5. Call to Action Section** (`<section class="call-to-action">`)
-
-- **Titlu:** "FII LUMINA DE LA ÎNCEPUTUL CLASEI!"
-- **Buton:** "Trimite SMS 'LOC' la 8846"
-- **QR Code:** `assets/qr-code.png` - Pentru scanare rapidă
-- **Culoare:** Galben gradient cu buton albastru
-
-#### **6. Footer** (`<footer class="footer">`)
-
-- **Logo:** `assets/logo_sn.png` - Logo Something New
-- **Info:** Copyright și link către something-new.ro
-- **Culoare:** Albastru închis cu logo alb
-
-### **Modificări Ușoare**
-
-#### **Schimbarea Imaginilor:**
-
-- **Header:** Înlocuiește `assets/header-image.jpg`
-- **Conținut:** Înlocuiește `assets/content-image.jpg`
-- **Testimonial:** Înlocuiește `assets/testimonial-image.jpg`
-- **QR Code:** Înlocuiește `assets/qr-code.png`
-- **Logo:** Înlocuiește `assets/logo_sn.png`
-
-#### **Schimbarea Textului:**
-
-- **Titlu Principal:** Caută `class="main-title"`
-- **Subtitlu:** Caută `class="subtitle"`
-- **Conținut:** Caută `class="content-text"`
-- **Testimonial:** Caută `class="testimonial-text"`
-- **SMS Number:** Caută toate aparițiile `8846`
-
-#### **Schimbarea Culorilor:**
-
-- **Variabile CSS:** Modifică valorile din `:root` în `styles.css`
-- **Galben Principal:** `--campaign-yellow: #ffd43b`
-- **Albastru:** `--campaign-blue: #0054a6`
-- **Albastru Deschis:** `--campaign-light-blue: #0071ce`
-
-#### **Schimbarea Numărului SMS:**
-
-- **HTML:** Caută toate aparițiile `8846`
-- **JavaScript:** Modifică `phoneNumber = '8846'` în `script.js`
-- **README:** Actualizează secțiunea "Detalii Campanie"
+### **Modificări Rapide:**
+- **Imagini:** Înlocuiește fișierele din `assets/`
+- **Text:** Caută clasele CSS (`main-title`, `content-text`, etc.)
+- **SMS:** Caută toate aparițiile `8846` în HTML și JavaScript
+- **Culori:** Modifică variabilele din `:root` în `styles.css`
 
 ## Optimizări Mobile
 
@@ -137,29 +80,18 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 - **Performanță** optimizată
 - **Accesibilitate** completă
 
-## Configurare & Deployment
+## Deployment
 
-### **Checklist Pre-Deployment:**
+### **Checklist:**
+- ✅ Toate imaginile în `assets/`
+- ✅ Fișierele core complete
+- ✅ SMS number 8846 consistent
+- ✅ HTTPS obligatoriu pentru SMS
 
-1. ✅ **Imagini:** Toate imaginile sunt în folderul `assets/`
-2. ✅ **Fișiere:** `index.html`, `styles.css`, `script.js` sunt complete
-3. ✅ **SMS Number:** Verifică că toate referințele folosesc 8846
-4. ✅ **Links:** Testează că link-ul către something-new.ro funcționează
-5. ✅ **Responsive:** Testează pe mobile, tablet și desktop
-
-### **Deployment:**
-
-1. **Upload:** Încarcă toate fișierele pe serverul web
-2. **Assets:** Asigură-te că folderul `assets/` conține toate imaginile
-3. **HTTPS:** Folosește HTTPS pentru securitate (obligatoriu pentru SMS)
-4. **Testing:** Testează funcționalitatea SMS pe dispozitive reale
-
-### **Post-Deployment:**
-
-1. **SMS Test:** Trimite un SMS test la 8846
-2. **QR Code:** Scanează QR code-ul pentru verificare
-3. **Mobile Test:** Testează pe diferite dispozitive mobile
-4. **Performance:** Verifică viteza de încărcare
+### **Upload:**
+1. Încarcă toate fișierele pe server
+2. Verifică că `assets/` este public
+3. Testează SMS și responsivitatea
 
 ## Testare
 
@@ -177,51 +109,22 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 ## Troubleshooting
 
 ### **Probleme Comune:**
+- **SMS nu funcționează:** Verifică HTTPS și numărul 8846
+- **Imagini nu se încarcă:** Verifică folderul `assets/` și numele fișierelor
+- **Layout stricat:** Verifică CSS și consola browser-ului
+- **JavaScript nu funcționează:** Verifică `script.js` și consola
 
-#### **SMS nu se deschide:**
+## Mentenanță
 
-- Verifică că folosești HTTPS (obligatoriu pentru SMS)
-- Testează pe dispozitiv mobil real
-- Verifică că numărul 8846 este corect
+### **Actualizări:**
+- Conținut testimonial lunar
+- Imagini și logo
+- Verifică SMS number 8846
+- Testează link-urile externe
 
-#### **Imaginile nu se încarcă:**
-
-- Verifică că folderul `assets/` există
-- Verifică că numele fișierelor sunt exacte (case-sensitive)
-- Verifică că serverul suportă fișiere statice
-
-#### **Layout-ul este stricat:**
-
-- Verifică că `styles.css` este încărcat
-- Verifică că nu există erori în consola browser-ului
-- Testează pe diferite dimensiuni de ecran
-
-#### **JavaScript nu funcționează:**
-
-- Verifică că `script.js` este încărcat
-- Verifică consola browser-ului pentru erori
-- Asigură-te că serverul suportă JavaScript
-
-## Mentenanță & Actualizări
-
-### **Actualizări Periodice:**
-
-- **Conținut:** Actualizează textul testimonialului lunar
-- **Imagini:** Înlocuiește imaginile cu versiuni mai noi
-- **SMS Number:** Verifică periodic că numărul 8846 este activ
-- **Links:** Verifică că link-urile externe funcționează
-
-### **Backup:**
-
-- Fă backup la toate fișierele înainte de modificări
-- Păstrează versiuni anterioare pentru rollback
-- Documentează toate modificările făcute
-
-### **Monitoring:**
-
-- Verifică periodic funcționalitatea SMS
-- Monitorizează performanța paginii
-- Testează responsivitatea pe dispozitive noi
+### **Backup & Monitoring:**
+- Backup înainte de modificări
+- Testează SMS și responsivitatea
 
 ---
 

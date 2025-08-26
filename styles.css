@@ -113,6 +113,7 @@ body {
   margin-bottom: 15px;
   color: var(--text-light);
   line-height: 1.5;
+  text-indent: 2rem;
 }
 
 .content-image {
@@ -164,6 +165,7 @@ body {
   margin-bottom: 15px;
   color: var(--text-light);
   line-height: 1.5;
+  text-indent: 2rem;
 }
 
 .works-action {
