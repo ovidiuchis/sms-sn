@@ -90,30 +90,98 @@ body {
 
 /* Main Content Section */
 .main-content {
-  padding: 40px 0;
-  background: var(--white);
+  padding: 30px 0;
+  background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--campaign-yellow),
+    var(--campaign-blue),
+    var(--campaign-yellow)
+  );
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 35px;
   align-items: center;
+  position: relative;
 }
 
 .content-text h2 {
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 15px;
   color: var(--campaign-blue);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.content-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--campaign-yellow);
+  border-radius: 2px;
 }
 
 .content-text p {
   font-size: 1rem;
   margin-bottom: 15px;
   color: var(--text-light);
-  line-height: 1.5;
+  line-height: 1.6;
   text-indent: 2rem;
+  position: relative;
+  padding-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.content-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--campaign-blue);
+  font-weight: 500;
+}
+
+.content-text p:last-of-type {
+  font-size: 1.1rem;
+  color: var(--campaign-blue);
+  font-weight: 600;
+  font-style: italic;
+  text-align: center;
+  background: linear-gradient(135deg, var(--campaign-yellow) 0%, #ffe066 100%);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-indent: 0;
+  margin-top: 20px;
+  position: relative;
 }
 
 .content-image {
@@ -127,7 +195,37 @@ body {
   max-width: 350px;
   height: auto;
   border-radius: 15px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--campaign-yellow);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.campaign-image::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: linear-gradient(
+    45deg,
+    var(--campaign-yellow),
+    var(--campaign-blue)
+  );
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.content-image:hover .campaign-image::before {
+  opacity: 0.6;
+}
+
+.content-image:hover .campaign-image {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
 /* How it Works Section */
@@ -166,6 +264,42 @@ body {
   color: var(--text-light);
   line-height: 1.5;
   text-indent: 2rem;
+}
+
+/* Step styling */
+.step {
+  margin-bottom: 25px;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.step-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--campaign-blue);
+  min-width: 20px;
+}
+
+.step-icon {
+  font-size: 1.3rem;
+}
+
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--campaign-blue);
+}
+
+.step-quote {
+  font-style: italic;
+  color: var(--campaign-blue);
+  font-weight: 500;
+  text-indent: 0 !important;
 }
 
 .works-action {
@@ -554,8 +688,34 @@ body {
     font-size: 1.3rem;
   }
 
+  .step-header {
+    gap: 8px;
+  }
+
+  .step-number {
+    font-size: 1.1rem;
+    min-width: 18px;
+  }
+
+  .step-icon {
+    font-size: 1.2rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
   .content-text h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .content-text p:last-of-type {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+
+  .content-grid::after {
+    display: none;
   }
 
   .sms-box {
