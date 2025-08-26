@@ -390,3 +390,23 @@ function addScrollProgress() {
 
 // Initialize scroll progress
 document.addEventListener("DOMContentLoaded", addScrollProgress);
+
+// Back to Top functionality
+const backToTopButton = document.getElementById("back-to-top");
+
+// Show/hide button based on scroll position
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.add("visible");
+  } else {
+    backToTopButton.classList.remove("visible");
+  }
+});
+
+// Smooth scroll to top when clicked
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
