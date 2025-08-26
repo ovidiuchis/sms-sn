@@ -68,6 +68,7 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 - **Logo:** `assets/logo_sn.png` (Something New)
 
 ### **Modificări Rapide:**
+
 - **Imagini:** Înlocuiește fișierele din `assets/`
 - **Text:** Caută clasele CSS (`main-title`, `content-text`, etc.)
 - **SMS:** Caută toate aparițiile `8846` în HTML și JavaScript
@@ -83,12 +84,14 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 ## Deployment
 
 ### **Checklist:**
+
 - ✅ Toate imaginile în `assets/`
 - ✅ Fișierele core complete
 - ✅ SMS number 8846 consistent
 - ✅ HTTPS obligatoriu pentru SMS
 
 ### **Upload:**
+
 1. Încarcă toate fișierele pe server
 2. Verifică că `assets/` este public
 3. Testează SMS și responsivitatea
@@ -109,6 +112,7 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 ## Troubleshooting
 
 ### **Probleme Comune:**
+
 - **SMS nu funcționează:** Verifică HTTPS și numărul 8846
 - **Imagini nu se încarcă:** Verifică folderul `assets/` și numele fișierelor
 - **Layout stricat:** Verifică CSS și consola browser-ului
@@ -117,12 +121,14 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 ## Mentenanță
 
 ### **Actualizări:**
+
 - Conținut testimonial lunar
 - Imagini și logo
 - Verifică SMS number 8846
 - Testează link-urile externe
 
 ### **Backup & Monitoring:**
+
 - Backup înainte de modificări
 - Testează SMS și responsivitatea
 
