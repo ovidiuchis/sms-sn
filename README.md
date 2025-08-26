@@ -137,4 +137,3 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 **Campania:** LUMINA DE LA ÎNCEPUTUL CLASEI  
 **Organizația:** [Something New](https://something-new.ro/)  
 **Scopul:** Strângere de fonduri prin SMS pentru educația copiilor din mediul rural  
-**Ultima Actualizare:** Decembrie 2024
