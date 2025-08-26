@@ -410,3 +410,205 @@ backToTopButton.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+// Kiosk Mode - Auto-scroll for coffee shop display
+function initKioskMode() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const isKiosk = urlParams.get("kiosk") === "1";
+
+  if (!isKiosk) return;
+
+  console.log("Kiosk mode activated - Auto-scrolling enabled");
+
+  // Request fullscreen for kiosk mode
+  function requestFullscreen() {
+    const elem = document.documentElement;
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      // Safari
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      // IE11
+      elem.msRequestFullscreen();
+    }
+  }
+
+  // Create fullscreen request button instead of auto-requesting
+  function createFullscreenButton() {
+    const fullscreenBtn = document.createElement("button");
+    fullscreenBtn.innerHTML = "🖥️ Fullscreen pentru Kiosk";
+    fullscreenBtn.className = "kiosk-fullscreen-btn";
+    fullscreenBtn.onclick = () => {
+      requestFullscreen();
+      fullscreenBtn.style.display = "none";
+    };
+
+    // Add styles for the button
+    const btnStyles = document.createElement("style");
+    btnStyles.textContent = `
+      .kiosk-fullscreen-btn {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--campaign-yellow);
+        color: var(--campaign-blue);
+        border: none;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 10000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+      }
+      .kiosk-fullscreen-btn:hover {
+        background: var(--campaign-blue);
+        color: var(--white);
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+      .kiosk-fullscreen-btn:active {
+        transform: translateX(-50%) translateY(0);
+      }
+    `;
+    document.head.appendChild(btnStyles);
+    document.body.appendChild(fullscreenBtn);
+  }
+
+  // Show fullscreen button instead of auto-requesting
+  createFullscreenButton();
+
+  // Handle fullscreen change events
+  document.addEventListener("fullscreenchange", handleFullscreenChange);
+  document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+  document.addEventListener("msfullscreenchange", handleFullscreenChange);
+
+  function handleFullscreenChange() {
+    if (
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement
+    ) {
+      // If user exits fullscreen, show the button again
+      const existingBtn = document.querySelector(".kiosk-fullscreen-btn");
+      if (existingBtn) {
+        existingBtn.style.display = "block";
+      }
+    }
+  }
+
+  // Add kiosk-specific styles
+  const kioskStyles = document.createElement("style");
+  kioskStyles.textContent = `
+    .kiosk-mode .back-to-top {
+      display: none !important;
+    }
+    .kiosk-mode .donate-btn,
+    .kiosk-mode .sms-box {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .kiosk-mode .donate-btn:hover,
+    .kiosk-mode .sms-box:hover {
+      transform: none !important;
+    }
+    .kiosk-mode {
+      overflow: hidden;
+    }
+    .kiosk-mode body {
+      overflow: hidden;
+    }
+  `;
+  document.head.appendChild(kioskStyles);
+  document.body.classList.add("kiosk-mode");
+
+  // Get all sections for scrolling
+  const sections = [
+    ".header",
+    ".main-content",
+    ".how-it-works",
+    ".testimonial",
+    ".call-to-action",
+    ".footer",
+  ];
+
+  let currentSectionIndex = 0;
+  let isScrolling = false;
+
+  function scrollToSection(index) {
+    if (isScrolling) return;
+
+    const section = document.querySelector(sections[index]);
+    if (!section) return;
+
+    isScrolling = true;
+
+    // Smooth scroll to section
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    // Wait for scroll to complete, then wait a bit
+    setTimeout(() => {
+      isScrolling = false;
+
+      // Calculate wait time based on section
+      let waitTime = 4000; // Default 4 seconds
+
+      if (index === sections.length - 1) {
+        // Wait longer on footer, then restart
+        waitTime = 8000;
+      } else if (index === 0) {
+        // Wait a bit on header
+        waitTime = 3000;
+      }
+
+      setTimeout(() => {
+        if (index === sections.length - 1) {
+          // Back to top and restart
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+          setTimeout(() => {
+            currentSectionIndex = 0;
+            scrollToSection(0);
+          }, 2000);
+        } else {
+          // Move to next section
+          currentSectionIndex = index + 1;
+          scrollToSection(currentSectionIndex);
+        }
+      }, waitTime);
+    }, 2000); // Wait for scroll animation
+  }
+
+  // Start kiosk mode after page loads
+  setTimeout(() => {
+    scrollToSection(0);
+  }, 3000);
+
+  // Pause on user interaction (optional)
+  let userInteractionTimeout;
+  function resetUserInteraction() {
+    clearTimeout(userInteractionTimeout);
+    userInteractionTimeout = setTimeout(() => {
+      if (!isScrolling) {
+        scrollToSection(currentSectionIndex);
+      }
+    }, 10000); // Resume after 10 seconds of no interaction
+  }
+
+  // Listen for user interactions
+  document.addEventListener("touchstart", resetUserInteraction);
+  document.addEventListener("click", resetUserInteraction);
+  document.addEventListener("scroll", resetUserInteraction);
+}
+
+// Initialize kiosk mode
+initKioskMode();

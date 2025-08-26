@@ -57,6 +57,17 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 - **Fallback Desktop** cu instrucțiuni
 - **Confirmare Succes** după acțiuni
 
+## Funcționalități
+
+- **Design Responsive** - Optimizat pentru mobile, tabletă și desktop
+- **SMS Deep Linking** - Butonul preîncarcă SMS-ul cu textul și numărul pe telefonul clientului
+- **Animații Smooth** - Efecte vizuale subtile și tranziții elegante
+- **Mod Kiosk** - Mod automat pentru afișare în cafenele (adăugați `?kiosk=1` la URL)
+  - Auto-scroll prin toate secțiunile
+  - Fullscreen automat
+  - Loop infinit cu pauze între secțiuni
+  - Dezactivare interacțiuni (butoanele devin inactive)
+
 ## Structura Paginii & Modificări
 
 ### **Secțiuni și Conținut**
@@ -136,4 +147,4 @@ Pagina de destinație modernă și optimizată pentru mobile pentru campania de 
 
 **Campania:** LUMINA DE LA ÎNCEPUTUL CLASEI  
 **Organizația:** [Something New](https://something-new.ro/)  
-**Scopul:** Strângere de fonduri prin SMS pentru educația copiilor din mediul rural  
+**Scopul:** Strângere de fonduri prin SMS pentru educația copiilor din mediul rural
